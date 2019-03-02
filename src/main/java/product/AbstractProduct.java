@@ -10,13 +10,13 @@ import java.util.List;
 public abstract class AbstractProduct {
 
     /* Наименование */
-    private String name;
+    protected String name;
 
     /* Стоимость */
-    private Double price = 0.00;
+    protected Double price = 0.00;
 
     /* коэфицент дисконтирования */
-    private Double r = 0.00;
+    protected Double r = 0.00;
 
 
     /**
@@ -24,7 +24,7 @@ public abstract class AbstractProduct {
      * @param countYear
      * @return
      */
-    private Double getDiscontProcentAllOfYear(int countYear){
+    protected    Double getDiscontProcentAllOfYear(int countYear){
         return Math.pow(1+r,countYear);
     }
 
