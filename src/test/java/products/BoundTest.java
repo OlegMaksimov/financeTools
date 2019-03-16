@@ -16,7 +16,8 @@ class BoundTest {
     void getYTM() {
         bound.setPrice(100.00);
         bound.setCuponProcent(5.375);
-        Assertions.assertEquals(3.8,bound.getYTM(6));
+        bound.setSaveCountYear(6);
+        Assertions.assertEquals(3.8, bound.getYTM());
 
     }
 }
