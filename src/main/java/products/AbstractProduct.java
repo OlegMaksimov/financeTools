@@ -43,10 +43,10 @@ public abstract class AbstractProduct implements Product {
     }
 
     public Double getExcpectProcent(Double[] futureValue) {
-        Double middleCost =  Arrays.asList(futureValue).stream()
-                .reduce((e1,e2)->e1+e2)
+        Double middleCost = Arrays.asList(futureValue).stream()
+                .reduce((e1, e2) -> e1 + e2)
                 .orElse(0.00)
-                /futureValue.length;
+                / futureValue.length;
         return getExcpectProcent(middleCost);
     }
 
