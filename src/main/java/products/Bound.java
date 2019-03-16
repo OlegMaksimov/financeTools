@@ -1,6 +1,4 @@
-package product;
-
-import java.math.BigDecimal;
+package products;
 
 /**
  * Облигации
@@ -16,14 +14,13 @@ public class Bound extends AbstractProduct {
 
     /**
      * Возвращает купонную доходность
-     * @param countYear количество используемых лет
-     * @return
+     * @return купонная доходность
      */
-    public Double getYTM(int countYear){
+    public Double getYTM() {
         if (cuponPrice == null){
             getCuponPrice();
         }
-        return cuponPrice/getDiscontProcentAllOfYear(countYear);
+        return cuponPrice / getDiscontProcentAllOfYear();
 
     }
 
@@ -34,7 +31,7 @@ public class Bound extends AbstractProduct {
     public Double getCuponPrice() {
         if (cuponPrice == null) {
             if (cuponProcent != null) {
-                cuponPrice = price == null ? 0 : price * 100 / cuponProcent;
+                cuponPrice = this.getPrice() == null ? 0 : this.getPrice() * 100 / cuponProcent;
             }
         }
         return cuponPrice;
@@ -47,7 +44,7 @@ public class Bound extends AbstractProduct {
     public Double getCuponProcent() {
         if (cuponProcent == null){
             if(cuponPrice != null){
-                cuponProcent = cuponPrice/price;
+                cuponProcent = cuponPrice / this.getPrice();
             }
         }
         return cuponProcent;

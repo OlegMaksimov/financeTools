@@ -1,13 +1,11 @@
-package product;
+package products;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class BoundTest {
-    Bound bound;
+    private Bound bound;
 
     @BeforeEach
     void setUp() {
