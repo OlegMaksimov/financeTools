@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Абстрактный класс всех финансовых продуктов
  */
-public abstract class AbstractProduct {
+public abstract class   AbstractProduct {
 
     /* Наименование */
     protected String name;
@@ -24,7 +24,7 @@ public abstract class AbstractProduct {
      * @param countYear
      * @return
      */
-    protected    Double getDiscontProcentAllOfYear(int countYear){
+    protected Double getDiscontProcentAllOfYear(int countYear){
         return Math.pow(1+r,countYear);
     }
 
@@ -65,7 +65,7 @@ public abstract class AbstractProduct {
      * @return
      */
     protected Double getExcpectProcent(Double futureValue){
-        return (futureValue - price)/price;
+        return ((futureValue - price)/price);
     }
 
     /**
