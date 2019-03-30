@@ -36,7 +36,8 @@ public abstract class AbstractProduct implements Product {
     }
 
     public Double getFutureValue() {
-        return this.price * getDiscontProcentAllOfYear();
+        this.futureValue = this.price * getDiscontProcentAllOfYear();
+        return futureValue;
     }
 
     public Double getPV(Double futureValue) {
