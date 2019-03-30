@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class AbstractProductTest {
-    Deposit product;
+    private Deposit product;
 
     @BeforeEach
     void setUp() {

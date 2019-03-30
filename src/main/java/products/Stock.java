@@ -1,6 +1,5 @@
-package product;
+package products;
 
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 /**
@@ -17,7 +16,7 @@ public class Stock extends AbstractProduct {
      * @return
      */
     public Double getExpectPrice(Double expectPrice) {
-        return (dividendStock/price)+((expectPrice-price)/price);
+        return (dividendStock / getPrice()) + ((expectPrice - getPrice()) / getPrice());
     }
 
     /**
@@ -26,29 +25,29 @@ public class Stock extends AbstractProduct {
      * @return
      */
     public Double getStockYeild(){
-        return dividendStock/price;
+        return dividendStock / getPrice();
     }
 
     /**
      * Справедливая доходность акции
-     * @param countYear количество лет использования
      * @return
      */
-    public Double getFairYeld(int countYear){
-        return IntStream.rangeClosed(1,countYear)
+    public Double getFairYeld() {
+        return IntStream.rangeClosed(1, getSaveCountYear())
                 .parallel()
-                .mapToDouble(value -> dividendStock/getDiscontProcentAllOfYear(value))
+                .mapToDouble(value -> dividendStock / getDiscontProcentAllOfYear())
                 .sum();
     }
 
     /**
      * Модель Гордона. Возвращает величину дисконтирования с постоянны темпом роста
-     * @param g - темп роста
+     * @param g - темп роста (ROE * коэф. реинвестирования)
      * @return
      */
     public Double getGordonModel(Double g){
-        return dividendStock/(r-g);
+        return dividendStock / (getR() - g);
     }
+
 
     public Double getDividendStock() {
         return dividendStock;

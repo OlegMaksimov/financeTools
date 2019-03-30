@@ -1,15 +1,14 @@
-package product;
+package products;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import products.Stock;
 
 import java.util.HashMap;
 import java.util.Map;
 
 class StockTest {
 
-    Stock stock;
+    private Stock stock;
 
     @BeforeEach
     void setUp(){
@@ -53,7 +52,7 @@ class StockTest {
     @Test
     void setDividendStock() {
         Map<Integer,Stock> stockMap = new HashMap();
-        Double fairYield = 0.00;
+        Double fairYield;
         for (int i = 0; i <3 ; i++) {
             Stock stock = new Stock();
             stock.setName("stock"+(i+1));

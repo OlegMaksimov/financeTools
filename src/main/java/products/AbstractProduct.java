@@ -19,9 +19,20 @@ public abstract class AbstractProduct implements Product {
     /* Количество лет хранения */
     private int saveCountYear;
 
+    /**
+     * общий процент за все время использования
+     */
+    private Double discontProcentAllOfYear;
+
+    /**
+     * будущая стоимость.
+     */
+    private Double futureValue;
+
 
     public Double getDiscontProcentAllOfYear() {
-        return Math.pow(1 + this.r, this.saveCountYear);
+        this.discontProcentAllOfYear = Math.pow(1 + this.r, this.saveCountYear);
+        return discontProcentAllOfYear;
     }
 
     public Double getFutureValue() {
