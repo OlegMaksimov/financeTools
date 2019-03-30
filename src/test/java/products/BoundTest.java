@@ -1,13 +1,11 @@
-package product;
+package products;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class BoundTest {
-    Bound bound;
+    private Bound bound;
 
     @BeforeEach
     void setUp() {
@@ -18,7 +16,8 @@ class BoundTest {
     void getYTM() {
         bound.setPrice(100.00);
         bound.setCuponProcent(5.375);
-        Assertions.assertEquals(3.8,bound.getYTM(6));
+        bound.setSaveCountYear(6);
+        Assertions.assertEquals(3.8, bound.getYTM());
 
     }
 }

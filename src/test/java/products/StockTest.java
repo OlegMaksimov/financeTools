@@ -2,14 +2,10 @@ package product;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import products.Stock;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class StockTest {
 
@@ -32,7 +28,8 @@ class StockTest {
     void getFairYeld() {
         stock.setDividendStock(10.00);
         stock.setR(0.08);
-        System.out.println(stock.getFairYeld(1));
+        stock.setSaveCountYear(1);
+        System.out.println(stock.getFairYeld());
 
     }
 
@@ -44,8 +41,9 @@ class StockTest {
         System.out.println(stock.getPrice());
         stock.setR(0.05);
         stock.setPrice(15.00);
-        System.out.println(stock.getFutureValue(4));
-        System.out.println(stock.getNPV(4,489.7760));
+        stock.setSaveCountYear(4);
+        System.out.println(stock.getFutureValue());
+        System.out.println(stock.getNPV(489.7760));
     }
 
     @Test
@@ -65,12 +63,12 @@ class StockTest {
         stock = stockMap.get(0);
         stock.setDividendStock(10.00);
         fairYield = stock.getDividendStock()/stock.getR();
-        System.out.println(stock.name + " " + fairYield);
+        System.out.println(stock.getName() + " " + fairYield);
 
         stock = stockMap.get(1);
         stock.setDividendStock(5.00);
         fairYield = stock.getGordonModel(0.04);
-        System.out.println(stock.name + " " + fairYield);
+        System.out.println(stock.getName() + " " + fairYield);
 
         stock = stockMap.get(2);
         stock.setDividendStock(5d);
@@ -78,7 +76,7 @@ class StockTest {
         stock.setDividendStock(stock.getDividendStock()*Math.pow(1.2,5));
 
         fairYield = stock.getDividendStock()/stock.getR();
-        System.out.println(stock.name + " " + fairYield);
+        System.out.println(stock.getName() + " " + fairYield);
         System.out.println();
 
 
